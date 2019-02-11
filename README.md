@@ -18,5 +18,5 @@ stima> test.py
 ```
 * To run the program using file handling, execute:
 ``` bash
-stima> frontend2.py in.txt out.txt
+stima> front2.py in.txt out.txt
 ```
