@@ -4,7 +4,6 @@ An application made with Python to input four numbers and put mathematical opera
 Done to fulfill IF2211 Algorithm Strategies's Big Mission (or whatever Tugas Besar is called).
 
 **Strategy:**
-```bash
 * Sort the array of 4 numbers descendingly.
 * Find which operator has the local maxima score.
 * [Local maxima is defined as: 1) getting as close as possible to 24, 2) use the best operator possible.]
