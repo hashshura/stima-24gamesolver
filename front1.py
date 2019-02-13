@@ -48,6 +48,7 @@ def main():
         card_arr[i], card_arr[ran] = card_arr[ran], card_arr[i]
 
     current_num = []
+    min_num = []
 
     # main loop
     while running:
@@ -64,25 +65,38 @@ def main():
 
             if event.type == pg.MOUSEBUTTONDOWN:
                 x, y = event.pos
-                card_pos = pg.Rect(50, 300, 140, 210)
+                card_pos = pg.Rect(50, 300, 210, 140)
 
                 if card_pos.collidepoint(x, y):
                     if not card_arr:
                         running = False
                         break
-                    
+
                     for i in range(4):
                         current_num.append(card_arr.pop())
+                        min_num.append(current_num[i])
+                        while min_num[i] > 13:
+                            min_num[i] -= 13
 
-                    myfont = pg.font.SysFont('Roboto', 30)
-                    textsurface = myfont.render(backend.solve(current_num), False, pg.Color('grey40'))
-                    screen.blit(textsurface, (0, 0))
-                    
+                    myfont = pg.font.SysFont('Roboto', 24)
+                    mystr = backend.solve(min_num)
+                    textsurface = myfont.render("Expression: " + mystr + " = " + str(round(eval(mystr), 2)), True, pg.Color('grey80'))
+                    screen.fill(pg.Color("gray25"), (300, 330, 350, 40))
+                    screen.blit(textsurface, (300, 330))
+
+                    myfont = pg.font.SysFont('Roboto', 16)
+                    mystr = str(len(card_arr))
+                    textsurface = myfont.render("Card(s) remaining: " + mystr, True, pg.Color('grey80'))
+                    screen.fill(pg.Color("gray25"), (300, 370, 350, 40))
+                    screen.blit(textsurface, (300, 370))
+
                     screen.blit(pg.transform.smoothscale(pg.image.load("ass/cards/" + str(current_num.pop(0)) + ".png"), (140, 210)), (50, 50))
                     screen.blit(pg.transform.smoothscale(pg.image.load("ass/cards/" + str(current_num.pop(0)) + ".png"), (140, 210)), (210, 50))
                     screen.blit(pg.transform.smoothscale(pg.image.load("ass/cards/" + str(current_num.pop(0)) + ".png"), (140, 210)), (370, 50))
                     screen.blit(pg.transform.smoothscale(pg.image.load("ass/cards/" + str(current_num.pop(0)) + ".png"), (140, 210)), (530, 50))
                     pg.display.flip()
+
+                    min_num = []
             
 
 
