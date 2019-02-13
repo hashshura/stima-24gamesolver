@@ -19,6 +19,7 @@ def solve(nums):
 		max_local_pts = -1e9
 		local_expr = expr
 		
+		# Last number position for 3rd parentheses expression type
 		if not first_done:
 			last_num_pos = 0
 		elif expr[-2] in ops:
@@ -36,11 +37,14 @@ def solve(nums):
 				expr[:last_num_pos] + '(' + expr[last_num_pos:] + op + str(num) + ')'
 			]
 			for i in range(2):
-				# Absolute difference to 24 is multiplied by 10, as the main focus is on getting 24 first
-				local_pts = score - 10 * abs(24 - eval(exprs[i])) - min(i, 1)
-				if local_pts > max_local_pts:
-					local_expr = exprs[i]
-					max_local_pts = local_pts
+				try:
+					# Absolute difference to 24 is multiplied by 10, as the main focus is on getting 24 first
+					local_pts = score - 10 * abs(24 - eval(exprs[i])) - min(i, 1)
+					if local_pts > max_local_pts:
+						local_expr = exprs[i]
+						max_local_pts = local_pts
+				except ZeroDivisionError:
+					pass
 		
 		expr = local_expr
 		first_done = True
