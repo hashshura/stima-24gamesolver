@@ -1,4 +1,4 @@
-# stima-4gamesolver
+# stima-24gamesolver
 
 An application made with Python to input four numbers and put mathematical operators to equal (or nearing) 24.
 Done to fulfill IF2211 Algorithm Strategies's Big Mission (or whatever Tugas Besar is called).
@@ -13,17 +13,17 @@ Done to fulfill IF2211 Algorithm Strategies's Big Mission (or whatever Tugas Bes
 * Make sure that Python 3.7.0 is already installed on your computer.
 * To test the program, execute:
 ``` bash
-stima-4gamesolver> python test.py
+stima-24gamesolver> python test.py
 ```
 * To run the program using file handling, execute:
 ``` bash
-stima-4gamesolver> python front2.py in.txt out.txt
+stima-24gamesolver> python front2.py in.txt out.txt
 ```
 * To run the frontend GUI, make sure that you have already installed Pygame or execute:
 ``` bash
-stima-4gamesolver> pip install pygame
+stima-24gamesolver> pip install pygame
 ```
 * Then run:
 ``` bash
-stima-4gamesolver> python front1.py
+stima-24gamesolver> python front1.py
 ```
